@@ -1,0 +1,15 @@
+@mixin base-grid {
+  .row {
+    @include outer-container;
+  }
+
+  @include base-grid-for-size(small);
+
+  @include media($medium-up) {
+    @include base-grid-for-size(medium);
+  }
+
+  @include media($large-up) {
+    @include base-grid-for-size(large);
+  }
+}

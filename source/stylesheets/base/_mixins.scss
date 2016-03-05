@@ -1,0 +1,13 @@
+@mixin base-grid-for-size($size: small) {
+  @for $i from 1 through $grid-columns {
+    .#{$size}-#{$i} {
+      @include span-columns($i);
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .#{$size}-shift-#{$i} {
+      @include shift($i);
+    }
+  }
+}

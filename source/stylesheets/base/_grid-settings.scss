@@ -1,0 +1,19 @@
+// @import "neat/neat-helpers";
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+) !default;
+
+// $column: 90px;
+// $gutter: 30px;
+$grid-columns: 12;
+$max-width: map-get($breakpoints, large);
+
+$medium-up: new-breakpoint(min-width map-get($breakpoints, medium));
+$large-up: new-breakpoint(min-width map-get($breakpoints, large));
+$xlarge-up: new-breakpoint(min-width map-get($breakpoints, xlarge));
+$xxlarge-up: new-breakpoint(min-width map-get($breakpoints, xxlarge));

@@ -1,0 +1,88 @@
+@mixin base-theme($name, $typography: $base-typography) {
+  .theme--#{$name} {
+    color: map-get($typography, font-color);
+    background-color: map-get($typography, background-color);
+
+    a {
+      color: map-get($typography, action-color);
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: shade(map-get($typography, action-color), 25%);
+      }
+    }
+  }
+}
+
+@mixin base-typography($typography: $base-typography) {
+  body {
+    color: map-get($typography, font-color);
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: 400;
+    line-height: $base-line-height;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  #{$all-headings} {
+    font-family: $heading-font-family;
+    font-size: $base-heading-size;
+    font-weight: 400;
+    line-height: $heading-line-height;
+    margin: 0 0 $small-spacing;
+  }
+
+  p {
+    margin: 0 0 $small-spacing;
+  }
+
+  a {
+    color: map-get($typography, action-color);
+    text-decoration: none;
+    transition: color $base-duration $base-timing;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: shade(map-get($typography, action-color), 25%);
+    }
+  }
+
+  hr {
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
+  }
+
+  img,
+  picture {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  ul,
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  dl {
+    margin-bottom: $small-spacing;
+
+    dt {
+      font-weight: 600;
+      margin-top: $small-spacing;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  // @include base-typography-colors($typography);
+}

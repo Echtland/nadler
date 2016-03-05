@@ -1,0 +1,90 @@
+@mixin component-navigation {
+  body {
+    transition: background-color 1s ease-in;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+    background-color: black;
+
+  }
+
+  .nav {
+    display: none;
+    @include position(absolute, 0);
+    padding: 50px 20px;
+
+    background-color: rgba(black, .9);
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 900;
+
+    animation-duration: .5s;
+    animation-delay: 0s;
+
+    // overflow-y: scroll;
+
+    a {
+      // opacity: 0;
+      color: white;
+      transition: opacity .5s cubic-bezier(0, 1, 0.5, 1);
+    }
+
+    @include media($medium-up) {
+      display: block;
+      background-color: transparent;
+      padding: 20px 20px 20px 0;
+      text-align: right;
+      font-size: initial;
+
+      li {
+        display: inline-block;
+        margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .toggle-menu {
+    @include position(absolute, 20px 20px null null);
+    color: white;
+    z-index: 901;
+
+    @include media($medium-up) {
+      display: none;
+    }
+  }
+
+
+  .subnav {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+  }
+
+  .subnav-item {
+    border: 0px solid white;
+    transition: opacity 0.2s linear;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img, picture {
+      // height: 50px;
+    }
+
+    &--icon {
+      // display: block;
+      height: 50px;
+      margin-bottom: 16px;
+    }
+
+    &--label {
+      display: block;
+    }
+  }
+}

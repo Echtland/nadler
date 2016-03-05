@@ -1,0 +1,172 @@
+@mixin shame-on-me {
+
+  .page,
+  .page-pusher {
+    height: 100%;
+  }
+
+  .page {
+    position: relative;
+    transition: transform 1s ease-in;
+
+    // overflow: hidden;
+  }
+
+  .page-pusher {
+    transition: transform .5s ease-in;
+  }
+
+  body.menu-open {
+    .page {
+      // perspective: 600px;
+    }
+
+    .page-pusher {
+      // transform: rotateX(30deg);
+    }
+  }
+
+  .text-light {
+    display: inline;
+    font-weight: 100;
+  }
+
+  .slide {
+    position: relative;
+    padding: 50px 0;
+
+    &__full {
+      height: 100vh;
+    }
+
+    &__overlay {
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+
+    &__title {
+      padding: 0;
+    }
+
+    h2 {
+      font-weight: 3rem;
+    }
+  }
+
+  .brand {
+    position: absolute;
+    background-image: url('/images/logo_light.svg');
+    top: 0;
+    left: 1rem;
+    width: 400px;
+    height: 150px;
+    background-repeat: no-repeat;
+    z-index: 800;
+
+    span {
+      display: none;
+    }
+
+  }
+
+  .welcome {
+    background-color: rgba($dark-gray, 0.5);
+    background-image: url('/images/Nadler-07.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+
+    color: white;
+
+    .title {
+      font-size: 7rem;
+      margin-top: 38vh;
+    }
+  }
+
+  .slide-footer {
+    $arrow-height: 25px;
+    $arrow-width: 280px;
+    $arrow-half-width: $arrow-width / 2;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $arrow-height;
+
+    &:before, &:after {
+      content: " ";
+      display: block;
+      width: calc(50% - #{$arrow-half-width});
+      height: $arrow-height;
+      background-color: white;
+    }
+
+    &:before {
+      float: left;
+    }
+
+    &:after {
+      float: right;
+    }
+
+    .dreieck {
+      width: 0;
+      height: 0;
+      border-left: $arrow-half-width solid white;
+      border-right: $arrow-half-width solid white;
+      border-top: $arrow-height solid transparent;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+    }
+  }
+
+
+
+
+
+
+  .st-effect-9.page {
+    -webkit-perspective: 1500px;
+    perspective: 1500px;
+  }
+
+  .st-effect-9 .page-pusher {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .st-effect-9.st-menu-open .page-pusher {
+    -webkit-transform: translate3d(0, 0, -300px);
+    transform: translate3d(0, 0, -300px);
+  }
+
+  .st-effect-9.st-menu {
+    opacity: 1;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .st-effect-9.st-menu-open .st-effect-9.st-menu {
+    visibility: visible;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .st-effect-9.st-menu::after {
+    display: none;
+  }
+}

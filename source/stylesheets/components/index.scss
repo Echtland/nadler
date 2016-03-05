@@ -1,0 +1,5 @@
+@import 'navigation';
+
+@mixin component-all {
+  @include component-navigation;
+}

@@ -1,0 +1,22 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+
+dependencies:
+  pre:
+    - bundle install
+    - npm install
+
+test:
+  pre:
+    - git config user.name ${GIT_NAME}
+    - git config user.email ${GIT_EMAIL}
+  override:
+    - ./bin/test
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./bin/deploy

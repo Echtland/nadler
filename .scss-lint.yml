@@ -1,0 +1,14 @@
+scss_files: 'source/stylesheets/**/*.scss'
+
+exclude: 'source/stylesheets/vendor/**'
+
+# linters:
+#   BorderZero:
+#     enabled: false
+
+#   Indentation:
+#     exclude:
+#       - 'path/to/file.scss'
+#       - 'path/to/directory/**'
+#     severity: warning
+#     width: 2
