@@ -1,12 +1,12 @@
 general:
   branches:
-    ignore:
-      - gh-pages
+    only:
+      - master
 
-dependencies:
-  pre:
-    - bundle install
-    - npm install
+# dependencies:
+#   pre:
+#     - bundle install
+#     - npm install
 
 test:
   pre:
