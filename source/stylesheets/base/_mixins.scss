@@ -1,13 +1,24 @@
-@mixin base-grid-for-size($size: small) {
+@mixin base-grid-for-size($size: small, $display: block) {
   @for $i from 1 through $grid-columns {
     .#{$size}-#{$i} {
-      @include span-columns($i);
+      @if $display == gutterless {
+        width: flex-grid($i, $grid-columns, 0);
+        &:last-child {
+          width: flex-grid($i, $grid-columns, 0);
+        }
+        margin-right: inherit;
+        // padding: 0 ($gutter / 2);
+      } @else {
+        @include span-columns($i);
+      }
     }
   }
 
-  @for $i from 1 through $grid-columns {
-    .#{$size}-shift-#{$i} {
-      @include shift($i);
+  @if $display != gutterless {
+    @for $i from 1 through $grid-columns {
+      .#{$size}-shift-#{$i} {
+        @include shift($i);
+      }
     }
   }
 }

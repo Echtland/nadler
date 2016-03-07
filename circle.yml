@@ -3,11 +3,6 @@ general:
     only:
       - master
 
-# dependencies:
-#   pre:
-#     - bundle install
-#     - npm install
-
 test:
   pre:
     - git config user.name ${GIT_NAME}

@@ -61,8 +61,12 @@
 
   .subnav {
     position: absolute;
-    bottom: 100px;
+    bottom: 50px;
     width: 100%;
+
+    @include media($medium-up) {
+      bottom: 100px;
+    }
   }
 
   .subnav-item {
@@ -79,12 +83,21 @@
 
     &--icon {
       // display: block;
-      height: 50px;
+      height: 30px;
       margin-bottom: 16px;
+
+      @include media($medium-up) {
+        height: 50px;
+      }
     }
 
     &--label {
       display: block;
+      font-size: 0.8rem;
+
+      @include media($medium-up) {
+        font-size: 1rem;
+      }
     }
   }
 }

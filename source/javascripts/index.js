@@ -20,3 +20,8 @@ $('.toggle-menu').on('click', (ev) => {
     $this.show().animateCss('fadeInDownBig')
   }
 })
+
+$(window).on('resize', (ev) => {
+  const $item = $('.lorem-img')
+  $item.height($item.width())
+}).trigger('resize')

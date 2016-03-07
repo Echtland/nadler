@@ -1,6 +1,14 @@
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
 @mixin base-grid {
   .row {
     @include outer-container;
+
+    &__fluid {
+      @include outer-container(100%);
+    }
   }
 
   @include base-grid-for-size(small);
@@ -11,5 +19,17 @@
 
   @include media($large-up) {
     @include base-grid-for-size(large);
+  }
+
+  .row__gutterless {
+    @include base-grid-for-size(small, gutterless);
+
+    @include media($medium-up) {
+      @include base-grid-for-size(medium, gutterless);
+    }
+
+    @include media($large-up) {
+      @include base-grid-for-size(large, gutterless);
+    }
   }
 }

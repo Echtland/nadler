@@ -1,4 +1,17 @@
+@mixin omega-reset($nth, $context: null) {
+  @if $context == null {
+    &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  } @else {
+    &:nth-child(#{$nth}) { margin-right: flex-gutter($context); }
+  }
+  &:nth-child(#{$nth}+1) { clear: none; }
+}
+
 @mixin shame-on-me {
+
+  .bluff {
+    padding: 2rem;
+  }
 
   .page,
   .page-pusher {
@@ -33,7 +46,7 @@
 
   .slide {
     position: relative;
-    padding: 50px 0;
+    // padding: 50px 0;
 
     &__full {
       height: 100vh;
@@ -59,18 +72,84 @@
     }
   }
 
+  .tile, .hero {
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: relative;
+
+    &--title {
+      position: absolute;
+      top: 48%;
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+
+  .hero {
+    &--title {
+      top: 40%;
+      font-size: 4rem;
+    }
+  }
+
+  .lorem-img {
+    background-color: rgba($dark-gray, 0.5);
+    // background-image: url('https://placeholdit.imgix.net/~text?txtsize=50&txt=Image&w=600&h=600');
+    background-image: url('http://loremflickr.com/500/500/worker,street/all');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    // min-height: 200px;
+    background-blend-mode: multiply;
+
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        background-image: url('http://loremflickr.com/500/500/worker,street/all?random=#{$i}');
+      }
+    }
+
+    // &--1 {
+    //   background-image: url('http://loremflickr.com/500/500/worker,street/all?random=1');
+    // }
+
+    // &--2 {
+    //   background-image: url('http://loremflickr.com/500/500/worker,street/all?random=2');
+    // }
+
+    // &--3 {
+    //   background-image: url('http://loremflickr.com/500/500/worker,street/all?random=3');
+    // }
+
+    // &--4 {
+    //   background-image: url('http://loremflickr.com/500/500/worker,street/all?random=4');
+    // }
+  }
+
+  .highlight {
+    background-color: crimson;
+  }
+
+  .divider {
+    border-right: 1px solid $red;
+  }
+
   .brand {
     position: absolute;
     background-image: url('/images/logo_light.svg');
     top: 0;
     left: 1rem;
-    width: 400px;
-    height: 150px;
+    width: 200px;
+    height: 100px;
     background-repeat: no-repeat;
     z-index: 800;
 
     span {
       display: none;
+    }
+
+    @include media($medium-up) {
+      height: 150px;
     }
 
   }
@@ -86,8 +165,17 @@
     color: white;
 
     .title {
-      font-size: 7rem;
+      font-size: 2.5rem;
       margin-top: 38vh;
+      transition: .3s ease-out;
+
+      @include media($medium-up) {
+        font-size: 4rem;
+      }
+
+      @include media($large-up) {
+        font-size: 7rem;
+      }
     }
   }
 
@@ -95,6 +183,7 @@
     $arrow-height: 25px;
     $arrow-width: 280px;
     $arrow-half-width: $arrow-width / 2;
+    $arrow-color: rgba(black, 0.3);
 
     position: absolute;
     bottom: 0;
@@ -106,7 +195,7 @@
       display: block;
       width: calc(50% - #{$arrow-half-width});
       height: $arrow-height;
-      background-color: white;
+      background-color: $arrow-color;
     }
 
     &:before {
@@ -120,8 +209,8 @@
     .dreieck {
       width: 0;
       height: 0;
-      border-left: $arrow-half-width solid white;
-      border-right: $arrow-half-width solid white;
+      border-left: $arrow-half-width solid $arrow-color;
+      border-right: $arrow-half-width solid $arrow-color;
       border-top: $arrow-height solid transparent;
       position: absolute;
       left: 0;
@@ -130,43 +219,5 @@
       margin-right: auto;
       cursor: pointer;
     }
-  }
-
-
-
-
-
-
-  .st-effect-9.page {
-    -webkit-perspective: 1500px;
-    perspective: 1500px;
-  }
-
-  .st-effect-9 .page-pusher {
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .st-effect-9.st-menu-open .page-pusher {
-    -webkit-transform: translate3d(0, 0, -300px);
-    transform: translate3d(0, 0, -300px);
-  }
-
-  .st-effect-9.st-menu {
-    opacity: 1;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  .st-effect-9.st-menu-open .st-effect-9.st-menu {
-    visibility: visible;
-    -webkit-transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  .st-effect-9.st-menu::after {
-    display: none;
   }
 }

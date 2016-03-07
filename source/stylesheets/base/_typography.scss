@@ -22,8 +22,10 @@
     font-size: $base-font-size;
     font-weight: 400;
     line-height: $base-line-height;
-    text-align: center;
-    text-transform: uppercase;
+
+    @include media($medium-up) {
+      font-size: 1rem;
+    }
   }
 
   #{$all-headings} {
@@ -31,6 +33,7 @@
     font-size: $base-heading-size;
     font-weight: 400;
     line-height: $heading-line-height;
+    text-transform: uppercase;
     margin: 0 0 $small-spacing;
   }
 
@@ -82,6 +85,10 @@
     dd {
       margin: 0;
     }
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   // @include base-typography-colors($typography);
