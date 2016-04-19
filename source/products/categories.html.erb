@@ -1,0 +1,23 @@
+---
+title: Produkte
+header: none
+---
+
+<div class="slide">
+  <div class="hero">
+    Krass
+    <h1 class="hero--title">Test</h1>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="row__fluid row__gutterless">
+    <% category.categories.each_with_index do |c, i| %>
+    <div class="small-6 medium-6 large-4">
+      <a href="/products/hiasl.html" class="tile lorem-img">
+        <h2 class="tile--title"><span class="text-light"><%= c.name %></span></h2>
+      </a>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+---
+title: Some Product
+layout: modal
+---
+
+<div class="row">
+  <div class="small-12">
+    <h1 class="page-heading"><%= product.name %></h1>
+
+    <div class="gallery">
+      <div class="picture" style="background-image: url(<%= "#{product.images.first.url}?fit=thumb&r=0&w=800&h=600" %>)" data-id="<%= product.images.first.slug %>">
+      </div>
+      <div class="thumb-list">
+        <% product.images.each_with_index do |i, index| %>
+        <div class="thumb <%= index == 0 ? 'active' : '' %>" style="background-image: url(<%= "#{i.url}?fit=thumb&r=0&w=800&h=600" %>)" data-id="<%= i.slug %>" data-src="<%= "#{i.url}?fit=thumb&r=0&w=800&h=600" %>">
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="island">
+      <%= simple_format product.body %>
+    </div>
+
+    <div class="island">
+      <% product.categories.each do |c| %>
+      <%= c.name %>
+      <% end %>
+    </div>
+
+    <div class="properties island">
+      <% product.properties.each do |p| %>
+      <div class="prop-icon prop-icon__<%= p.icon %>"></div>
+      <% end %>
+      <div class="prop-icon prop-icon__pdf"></div>
+    </div>
+
+
+  </div>
+</div>

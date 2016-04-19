@@ -1,26 +1,9 @@
-@mixin base-theme($name, $typography: $base-typography) {
-  .theme--#{$name} {
-    color: map-get($typography, font-color);
-    background-color: map-get($typography, background-color);
-
-    a {
-      color: map-get($typography, action-color);
-
-      &:active,
-      &:focus,
-      &:hover {
-        color: shade(map-get($typography, action-color), 25%);
-      }
-    }
-  }
-}
-
 @mixin base-typography($typography: $base-typography) {
   body {
     color: map-get($typography, font-color);
     font-family: $base-font-family;
     font-size: $base-font-size;
-    font-weight: 400;
+    font-weight: 200;
     line-height: $base-line-height;
 
     @include media($medium-up) {
@@ -89,6 +72,11 @@
 
   .text-center {
     text-align: center;
+  }
+
+  .page-heading {
+    margin-top: 4rem;
+    font-size: 3rem;
   }
 
   // @include base-typography-colors($typography);

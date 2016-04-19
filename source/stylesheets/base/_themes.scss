@@ -1,0 +1,6 @@
+@mixin base-theme($name, $typography: $base-typography) {
+  .theme--#{$name} {
+    background-color: map-get($typography, background-color);
+    @include typography-color(map-get($typography, font-color));
+  }
+}

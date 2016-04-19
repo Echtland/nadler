@@ -1,0 +1,46 @@
+<footer class="footer">
+  <div class="row">
+    <div class="medium-4">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1321.6937984737015!2d11.577705601168692!3d48.50663408214547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x45d4c804d98c5efb!2sNadler+Stra%C3%9Fentechnik+GmbH!5e0!3m2!1sde!2sde!4v1457455444977" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="medium-3">
+      <h4>Produkte</h4>
+      <ul>
+        <% data.nadler.main_category.map { |p| p.last }.each_with_index do |c, i| %>
+        <li><%= c.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="medium-3">
+      <h4>Service</h4>
+      <ul>
+        <li>KAGALOGBESTELLUNG</li>
+        <li>MERKBLÄTTER</li>
+        <li>NEWSLETTER</li>
+        <li>SCHULUNG</li>
+        <li>MATERIALVERBRAUCH</li>
+      </ul>
+    </div>
+    <div class="medium-2">
+      <h4>Kontakt</h4>
+      <ul>
+        <li>E-MAIL SCHREIBEN</li>
+        <li>KONTAKTFORMULAR</li>
+        <li>ANFAHRT</li>
+        <li>SITEMAP</li>
+        <li>IMPRESSUM</li>
+        <li>DATENSCHUTZ</li>
+        <li>AGBS</li>
+        <li>STARTSEITE</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4">
+      Nadler Straßentechnik GmbH
+    </div>
+    <div class="medium-8">
+      Impressum | Kontaktformular | Datenschutz
+    </div>
+  </div>
+</footer>

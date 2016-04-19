@@ -11,6 +11,7 @@ $base-heading-size: 1.25rem;
 // Line height
 $base-line-height: 1.5;
 $heading-line-height: 1.2;
+$computed-line-height: 1rem * $base-line-height;
 
 // Other Sizes
 $base-border-radius: 3px;
@@ -62,4 +63,10 @@ $base-typography-water: (
   font-color: $light-gray,
   action-color: white,
   background-color: $blue,
+);
+
+$base-typography-stone: (
+  font-color: white,
+  action-color: white,
+  background-color: $dark-gray,
 );

@@ -22,3 +22,17 @@
     }
   }
 }
+
+@mixin typography-color($color) {
+  color: $color;
+
+  a {
+    color: $color;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: shade($color, 25%);
+    }
+  }
+}

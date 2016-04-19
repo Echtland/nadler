@@ -9,8 +9,207 @@
 
 @mixin shame-on-me {
 
+  .header {
+    height: 300px;
+
+    &__float {
+      height: initial;
+      @include typography-color(white);
+    }
+
+    .page-title {
+      text-align: center;
+      top: 10rem;
+      position: relative;
+      font-size: 5rem;
+    }
+  }
+
+  .brand {
+    position: absolute;
+    background-image: url('/images/logo_dark.svg');
+    top: 0;
+    left: 1rem;
+    width: 200px;
+    height: 100px;
+    background-repeat: no-repeat;
+    z-index: 800;
+
+    span {
+      display: none;
+    }
+
+    @include media($medium-up) {
+      height: 150px;
+    }
+  }
+
+  .header__float {
+    .brand {
+      background-image: url('/images/logo_light.svg');
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    // background-color: red;
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+    background-color: rgba(black, 0.2);
+    cursor: pointer;
+    z-index: 900;
+
+    @include media($large-up) {
+      background-color: initial;
+    }
+  }
+
+  body.modal__open {
+    overflow: hidden;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+
+  }
+
+  .properties {
+    text-align: right;
+  }
+
+  .prop-icon {
+    // background-color: black;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &__sun {
+      background-image: url('/images/icon_sonne.svg');
+    }
+
+    &__rain {
+      background-image: url('/images/icon_regen.svg');
+    }
+
+    &__snow {
+      background-image: url('/images/icon_schnee.svg');
+    }
+
+    &__pdf {
+      background-image: url('/images/icon_pdf.svg');
+    }
+  }
+
+  .gallery {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 2rem;
+
+    @include media($medium-up) {
+      height: 500px;
+    }
+
+    @include media($large-up) {
+      height: 600px;
+    }
+
+    .picture, .thumb-list, .thumb {
+      float: left;
+      padding: 0;
+      margin: 0;
+    }
+
+    .picture {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @include media($medium-up) {
+        width: 80%;
+      }
+
+      @include media($large-up) {
+        width: 80%;
+      }
+    }
+
+    .thumb-list {
+      width: 100%;
+      height: 33.333333%;
+
+      @include media($medium-up) {
+        width: 20%;
+        height: 100%;
+      }
+
+      @include media($large-up) {
+        width: 20%;
+      }
+    }
+
+    .thumb {
+      position: relative;
+      width: 33.333333%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      // background-color: rgba($dark-gray, 0.9);
+      // background-blend-mode: multiply;
+      cursor: pointer;
+
+      @include media($medium-up) {
+        width: 100%;
+        height: 33.333333%;
+      }
+
+      &:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($dark-gray, 0.7);
+        transition: opacity .2s ease-in;
+        cursor: pointer;
+      }
+
+      &.active, &:hover {
+        cursor: initial;
+
+        &:after {
+          opacity: 0;
+        }
+      }
+
+      &:hover:not(.active) {
+        &:after {
+          opacity: 0.7;
+        }
+      }
+    }
+
+  }
+
   .bluff {
-    padding: 2rem;
+    padding: $computed-line-height;
+
+    @include media($large-up) {
+      padding: $computed-line-height * 2;
+    }
   }
 
   .page,
@@ -73,6 +272,7 @@
   }
 
   .tile, .hero {
+    display: block;
     width: 100%;
     text-align: center;
     color: white;
@@ -89,7 +289,15 @@
   .hero {
     &--title {
       top: 40%;
-      font-size: 4rem;
+      font-size: 2.5rem;
+
+      @include media($medium-up) {
+        font-size: 4rem;
+      }
+
+      @include media($large-up) {
+        font-size: 7rem;
+      }
     }
   }
 
@@ -132,26 +340,6 @@
 
   .divider {
     border-right: 1px solid $red;
-  }
-
-  .brand {
-    position: absolute;
-    background-image: url('/images/logo_light.svg');
-    top: 0;
-    left: 1rem;
-    width: 200px;
-    height: 100px;
-    background-repeat: no-repeat;
-    z-index: 800;
-
-    span {
-      display: none;
-    }
-
-    @include media($medium-up) {
-      height: 150px;
-    }
-
   }
 
   .welcome {
@@ -219,5 +407,13 @@
       margin-right: auto;
       cursor: pointer;
     }
+  }
+
+  .footer {
+    @extend .theme--water;
+    // padding: ($computed-line-height * 2) 0;
+    padding: $gutter;
+    background-color: $dark-gray;
+    width: 100%;
   }
 }

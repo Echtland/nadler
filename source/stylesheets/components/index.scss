@@ -1,5 +1,8 @@
+@import 'island';
 @import 'navigation';
+@import 'nadler-icons';
 
 @mixin component-all {
   @include component-navigation;
+  @include component-island;
 }

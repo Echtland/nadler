@@ -19,5 +19,9 @@ gem 'middleman-deploy', '= 2.0.0.pre.alpha'
 gem 'middleman-livereload'
 gem 'neat'
 
+gem 'font-awesome-sass'
+
+gem 'contentful_middleman', github: 'contentful/contentful_middleman', branch: 'dl/upgrade-to-v4'
+
 gem 'html-proofer'
 # gem 'scss_lint', require: false

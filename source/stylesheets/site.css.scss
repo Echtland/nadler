@@ -23,7 +23,11 @@ body {
 @include base-tables;
 
 @include base-theme(water, $base-typography-water);
+@include base-theme(stone, $base-typography-stone);
+
 
 @include component-all;
 
 @include shame-on-me;
+
+@import "font-awesome";

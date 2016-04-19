@@ -12,6 +12,9 @@
   .nav {
     display: none;
     @include position(absolute, 0);
+    bottom: initial;
+
+
     padding: 50px 20px;
 
     background-color: rgba(black, .9);
@@ -26,7 +29,7 @@
 
     a {
       // opacity: 0;
-      color: white;
+      // color: white;
       transition: opacity .5s cubic-bezier(0, 1, 0.5, 1);
     }
 

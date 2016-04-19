@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <%= partial('layouts/head') %>
+  </head>
+
+  <body class="<%= page_classes %>">
+
+    <div class="modal-wrapper theme--stone">
+      <div class="closes"><i class="material-icons close">clear</i></div>
+
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag "index" %>
+  </body>
+</html>

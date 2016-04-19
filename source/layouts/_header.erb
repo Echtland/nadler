@@ -1,0 +1,22 @@
+<% header_classes = 'header' %>
+<% header_classes += current_page.data.header ? " header__#{current_page.data.header}" : '' %>
+
+<header class="<%= header_classes %>">
+  <a href="/" class="brand"><span>Nadler Straßentechnik GmbH</span></a>
+
+  <a class="toggle-menu" href="#">Menü</a>
+
+  <nav class="nav">
+    <ul>
+      <li><a class="" href="#">Straßensanierung</a></li>
+      <li><a class="" href="#">Straßenneubau</a></li>
+      <li><a class="" href="#">Thermokontainer</a></li>
+      <li><a class="" href="#">Produktkatalog</a></li>
+      <li><a class="" href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <% unless current_page.data.header == 'float' %>
+  <h1 class="page-title"><i class="ni-<%= current_page.data.icon %>"></i> <%= current_page.data.title %></h1>
+  <% end %>
+</header>
