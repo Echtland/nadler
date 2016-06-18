@@ -3,9 +3,13 @@ class ProductMapper < ContentfulMiddleman::Mapper::Base
     super
     context.slug = entry.name.parameterize
 
-    context.krass = context.images.map do |i|
-      i.set(:slug, i.title.parameterize)
-      i
-    end
+    # p entry.images
+
+    # if entry.images
+    #   context.images.map do |i|
+    #     i.set(:slug, i.title.parameterize)
+    #     i
+    #   end
+    # end
   end
 end

@@ -1,10 +1,10 @@
-class CategoryMapper < ContentfulMiddleman::Mapper::Base
+class MainCategoryMapper < ContentfulMiddleman::Mapper::Base
   def map(context, entry)
     super
     context.slug = entry.name.parameterize
 
-    if entry.categories
-      context.categories.each do |c|
+    if entry.product_categories
+      context.product_categories.each do |c|
         c.set(:slug, c.name.parameterize)
         c
       end

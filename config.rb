@@ -3,8 +3,9 @@
 ###
 
 require 'lib/mappers/product_mapper'
-require 'lib/mappers/category_mapper'
-require 'lib/mappers/subcategory_mapper'
+require 'lib/mappers/problem_mapper'
+require 'lib/mappers/main_category_mapper'
+require 'lib/mappers/product_category_mapper'
 
 activate :directory_indexes
 activate :autoprefixer
@@ -52,36 +53,46 @@ helpers do
 end
 
 activate :contentful do |f|
-  f.space         = { nadler: 'n7kinjc9606g' }
-  f.access_token  = '1b3e061742ab5777dd2fe39d360cd7c54a1e9c3fe1edadd8d16d3cabaa586cfd'
-  # f.cda_query     = { content_type: 'category', include: 1 }
+  f.space         = { nadler: 'ij3nq99pxj5e' }
+  f.access_token  =  'bc11370752da496c3f1384f6f5f930f04404d13559cac0d99f3b2079451df86c'
+  # f.access_token  = '5348bd0d91059674bd9ad7dfe82eabbfbd13af1e7a4b59dd3d8e079929d56f0b'
+  # f.use_preview_api = true
+  # f.cda_query     = { content_type: ['main_categories', 'problems'], include: 1000 }
+  f.all_entries = true
   f.content_types = {
-    category: { mapper: SubcategoryMapper, id: 'category' },
-    main_category: { mapper: CategoryMapper, id: 'main_category' },
-    product: { mapper: ProductMapper, id: 'product' },
+    # category: { mapper: SubcategoryMapper, id: 'category' },
+    # main_categories: { mapper: CategoryMapper, id: 'main_categories' },
+    # product: { mapper: ProductMapper, id: 'products' },
+    # main_categories: 'main_categories',
+    main_categories: { mapper: MainCategoryMapper, id: 'main_categories' },
+    problems: { mapper: ProblemMapper, id: 'problems' },
+    product_categories: { mapper: ProductCategoryMapper, id: 'product_categories' },
+    products: { mapper: ProductMapper, id: 'products' },
     product_properties: 'product_properties'
   }
 end
 
-# data.products.map { |p| p.last }.each do |product|
+# p data.nadler.inspect
+
+# data.nadl.products.map { |p| p.last }.each do |product|
 #   proxy "/products/#{product.name.parameterize}.html", "/products/template.html", locals: {
 #     :product => product, 'title' => product.name
 #   }
 # end
 
-data.nadler.product.map { |p| p.last }.each do |product|
+data.nadler.products.map { |p| p.last }.each do |product|
   proxy "/products/#{product.slug}.html", "/products/template.html", locals: {
     :product => product, 'title' => product.name
   }
 end
 
-data.nadler.main_category.map { |p| p.last }.each do |category|
+data.nadler.main_categories.map { |p| p.last }.each do |category|
   proxy "/categories/#{category.slug}/index.html", "/categories/template.html", locals: {
     :category => category, 'title' => category.name
   }
 
-  next unless category.categories
-  category.categories.each do |sub|
+  next unless category.product_categories
+  category.product_categories.each do |sub|
     p sub.slug
     proxy "/categories/#{category.slug}/#{sub.slug}/index.html",
           "/categories/sub.html",

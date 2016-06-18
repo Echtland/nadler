@@ -6,7 +6,7 @@
     <div class="medium-3">
       <h4>Produkte</h4>
       <ul>
-        <% data.nadler.main_category.map { |p| p.last }.each_with_index do |c, i| %>
+        <% data.nadler.main_categories.map { |p| p.last }.each_with_index do |c, i| %>
         <li><%= c.name %></li>
         <% end %>
       </ul>

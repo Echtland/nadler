@@ -12,7 +12,7 @@ header: none
 
 <div class="slide">
   <div class="row__fluid row__gutterless">
-    <% category.categories.each_with_index do |c, i| %>
+    <% category.product_categories.each_with_index do |c, i| %>
     <% image = "http://loremflickr.com/500/500/worker,street/all?random=#{i}" %>
     <div class="small-6 medium-6 large-4">
       <a href="/categories/<%= category.slug %>/<%= c.slug %>" class="tile lorem-img" style="background-image: url(<%= image %>)">
